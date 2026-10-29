@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&family=VT323&display=swap">
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js"}}</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
 <style>
 /* Layout: two views of the same content. "Reading" is one 660px column like a CV.
    "Room" is a full-screen three.js night scene with the sections as TV channels
@@ -158,6 +158,7 @@ footer.pfoot{
   padding:.5rem .8rem;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
 }
 .hud.ctl button:hover,.hud.panel .close:hover{border-color:#4fd1c5;color:#fff}
+.hud.ctl button[aria-pressed="true"]{border-color:#4fd1c5;color:#4fd1c5}
 .hud.panel{
   top:calc(env(safe-area-inset-top,0px) + 4.6rem);
   right:max(16px, env(safe-area-inset-right,0px));
@@ -311,9 +312,10 @@ footer.pfoot{
     <div class="body" id="p-body"></div>
   </section>
   <div class="hud ctl">
-    <div class="hint" id="hint">1–4 channels · Z zoom · ESC back to the desk</div>
+    <div class="hint" id="hint">1–4 channels · Z zoom · M sound · ESC back to the desk</div>
     <div class="btns">
       <button type="button" id="zoom">Zoom</button>
+      <button type="button" id="sound" aria-pressed="false">Sound off</button>
       <button type="button" id="lofi">Lo-fi version</button>
     </div>
   </div>
