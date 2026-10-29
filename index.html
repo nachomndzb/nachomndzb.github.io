@@ -89,6 +89,8 @@ h2{
 }
 p{margin:0 0 1.1rem}
 .lede{font-size:1.3rem;line-height:1.45}
+.portrait{float:left;width:132px;height:132px;object-fit:cover;border-radius:10px;margin:.35rem 1.4rem .6rem 0;box-shadow:0 2px 14px rgba(0,0,0,.2)}
+#about::after{content:"";display:block;clear:both}
 a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.16em}
 a:hover{color:var(--accent-hover)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
@@ -110,13 +112,16 @@ footer.pfoot{
   body{font-size:1.0625rem}
   .lede{font-size:1.2rem}
   .links li{grid-template-columns:1fr;gap:.15rem}
+  .portrait{width:96px;height:96px;margin-right:1rem}
 }
 @media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
 
 /* ---------- the room ---------- */
 #room{display:none;position:fixed;inset:0;background:#06080c;color:#dfe5ee;overflow:hidden;font-family:var(--mono)}
 :root[data-view="room"] #room{display:block}
-#gl{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 1.4s ease;cursor:zoom-in}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity 1.4s ease;cursor:grab;touch-action:none}
+#gl:active{cursor:grabbing}
+#room:fullscreen{background:#06080c}
 #room.ready #gl{opacity:1}
 #still{position:absolute;inset:0;display:grid;place-items:center;transition:opacity 1s ease;z-index:1;padding:0 16px}
 #room.ready #still{opacity:0;pointer-events:none}
@@ -179,6 +184,8 @@ footer.pfoot{
 .hud.panel .body{overflow:auto;padding:1.1rem 1.25rem 1.5rem;font-family:var(--body);font-size:1.05rem;line-height:1.6;color:#dfe5ee;overscroll-behavior:contain}
 .hud.panel .body p:last-child{margin-bottom:0}
 .hud.panel .body .lede{font-size:1.15rem;line-height:1.5}
+.hud.panel .body .portrait{width:108px;height:108px;margin:.2rem 1.1rem .4rem 0}
+.hud.panel .body::after{content:"";display:block;clear:both}
 .hud.panel .body a{color:#4fd1c5}
 .hud.panel .body a:hover{color:#8ae3da}
 .hud.panel .body .stack{color:#8f99a8}
@@ -233,6 +240,8 @@ footer.pfoot{
 
 <section id="about">
 <h1>About me</h1>
+
+<img class="portrait" src="photo.jpg" width="640" height="640" alt="Ignacio Méndez-Bonito, smiling, in a navy suit and green tie">
 
 <p class="lede">I build AI systems that have to work on Monday morning. Right now that means an agentic recruitment platform for the Abu Dhabi Government, where I'm a Senior Forward Deployed Engineer at the Department of Government Enablement.</p>
 
@@ -312,10 +321,11 @@ footer.pfoot{
     <div class="body" id="p-body"></div>
   </section>
   <div class="hud ctl">
-    <div class="hint" id="hint">1–4 channels · Z zoom · M sound · ESC back to the desk</div>
+    <div class="hint" id="hint">Drag to look · scroll to zoom · 1–4 channels · M sound · F full screen · ESC back</div>
     <div class="btns">
       <button type="button" id="zoom">Zoom</button>
       <button type="button" id="sound" aria-pressed="false">Sound off</button>
+      <button type="button" id="full">Full screen</button>
       <button type="button" id="lofi">Lo-fi version</button>
     </div>
   </div>
