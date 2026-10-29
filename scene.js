@@ -440,18 +440,19 @@ export function start(room, hooks = {}) {
   add(new THREE.PlaneGeometry(9, 4.5), new THREE.MeshBasicMaterial({ map: city.sky, fog: false }), 0.35, 1.5, -6.0, { cast: false, receive: false });
   add(new THREE.PlaneGeometry(7, 3.5), new THREE.MeshBasicMaterial({ map: city.mid, transparent: true, fog: false }), 0.35, 1.45, -4.6, { cast: false, receive: false });
   add(new THREE.PlaneGeometry(5.2, 2.6), new THREE.MeshBasicMaterial({ map: city.near, transparent: true, fog: false }), 0.35, 1.4, -3.4, { cast: false, receive: false });
+  const dot = makeDustSprite();
   const sprite = (color, size, x, y, z) => {
-    const s = new THREE.Sprite(new THREE.SpriteMaterial({ color, transparent: true, opacity: .9, blending: THREE.AdditiveBlending, depthWrite: false, fog: false }));
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: dot, color, transparent: true, opacity: .9, blending: THREE.AdditiveBlending, depthWrite: false, fog: false }));
     s.scale.set(size, size, 1); s.position.set(x, y, z); scene.add(s); return s;
   };
   const beacons = city.beacons.map((b, i) => { const s = sprite(0xff2a1f, 0.05, 0.35 - 2.6 + b.u * 5.2, 1.4 - 1.3 + b.v * 2.6, -3.38); s.userData.phase = i * 2.1; return s; });
   const roadY = 1.4 - 1.3 + city.horizonV * 2.6 - 0.02;
   const cars = [];
   for (let i = 0; i < 10; i++) {
-    const dir = i % 2 ? 1 : -1, s = sprite(dir > 0 ? 0xff5a3a : 0xfff1c8, 0.028, -2.2 + Math.random() * 5, roadY + (dir > 0 ? 0.0 : 0.012), -3.36);
+    const dir = i % 2 ? 1 : -1, s = sprite(dir > 0 ? 0xff5a3a : 0xfff1c8, 0.014, -2.2 + Math.random() * 5, roadY + (dir > 0 ? 0.0 : 0.012), -3.36);
     s.userData.v = dir * (0.12 + Math.random() * 0.08); cars.push(s);
   }
-  const plane = sprite(0xffffff, 0.035, -4, 2.4, -5.9); plane.userData.t = Math.random() * 60;
+  const plane = sprite(0xffffff, 0.02, -4, 2.4, -5.9); plane.userData.t = Math.random() * 60;
   // curtain, rod, poster
   const curtainGeo = new THREE.PlaneGeometry(0.5, 1.6, 40, 4);
   { const p = curtainGeo.attributes.position; for (let i = 0; i < p.count; i++) p.setZ(i, Math.sin(p.getX(i) * 38) * 0.03 + Math.sin(p.getX(i) * 11) * 0.015); curtainGeo.computeVertexNormals(); }
@@ -733,7 +734,7 @@ export function start(room, hooks = {}) {
       for (const c of cars) { c.position.x += c.userData.v * dt; if (c.position.x > 2.95) c.position.x = -2.25; if (c.position.x < -2.25) c.position.x = 2.95; }
       plane.userData.t += dt; const pt = (plane.userData.t % 70) / 70;
       plane.position.set(-4.2 + pt * 8.6, 2.45 + Math.sin(pt * 3) * 0.05, -5.9);
-      plane.material.opacity = pt < 0.75 ? (Math.sin(t * 6) > 0.6 ? 0.9 : 0.25) : 0;
+      plane.material.opacity = pt < 0.75 ? (Math.sin(t * 6) > 0.6 ? 0.6 : 0.12) : 0;
       const a = dust.geometry.attributes.position, arr = a.array;
       for (let i = 0; i < N; i++) {
         arr[i * 3 + 1] -= dt * 0.01;
