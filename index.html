@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ignacio Méndez-Bonito</title>
+<meta name="description" content="Senior AI engineer. Currently building an agentic recruitment platform for the Abu Dhabi Government at DGE. Before that BCG X, CERN and HPE.">
+<meta property="og:title" content="Ignacio Méndez-Bonito">
+<meta property="og:description" content="Senior AI engineer. Currently building an agentic recruitment platform for the Abu Dhabi Government at DGE. Before that BCG X, CERN and HPE.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one 660px reading column, read top to bottom like a CV: header row, prose sections, tech stacks as mono footnotes under each job. */
+:root{
+  --bg:#F6F7F9;
+  --fg:#16191F;
+  --muted:#5C6471;
+  --rule:#D8DCE3;
+  --accent:#0B6E6B;
+  --accent-hover:#07504E;
+  --code-bg:#EAEEF2;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1317; --fg:#E6E9EE; --muted:#9AA3B0; --rule:#272D36;
+    --accent:#4FD1C5; --accent-hover:#8AE3DA; --code-bg:#161B21;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1317; --fg:#E6E9EE; --muted:#9AA3B0; --rule:#272D36;
+  --accent:#4FD1C5; --accent-hover:#8AE3DA; --code-bg:#161B21;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--body);
+  font-size:1.125rem;
+  line-height:1.6;
+  padding-block:2rem 4rem;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:660px;margin:0 auto}
+header.site{
+  display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;
+  gap:.5rem 1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--rule);
+}
+header.site .name{
+  font-family:var(--display);font-weight:700;font-size:1.1rem;
+  letter-spacing:-.01em;color:var(--fg);text-decoration:none;
+}
+header.site nav{
+  display:flex;flex-wrap:wrap;gap:1rem;
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
+}
+header.site nav a{color:var(--muted);text-decoration:none}
+header.site nav a:hover,header.site nav a:focus-visible{color:var(--accent)}
+h1{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(2.4rem,7vw,3.4rem);line-height:1.02;letter-spacing:-.025em;
+  margin:3rem 0 1.25rem;text-wrap:balance;
+}
+h2{
+  font-family:var(--display);font-weight:700;
+  font-size:1.55rem;line-height:1.15;letter-spacing:-.015em;
+  margin:3rem 0 .9rem;text-wrap:balance;scroll-margin-top:1.5rem;
+}
+p{margin:0 0 1.1rem}
+.lede{font-size:1.3rem;line-height:1.45}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.16em}
+a:hover{color:var(--accent-hover)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.stack{
+  font-family:var(--mono);font-size:.8rem;color:var(--muted);
+  margin:-.5rem 0 1.6rem;line-height:1.6;
+}
+.stack b{font-weight:500;color:var(--fg)}
+.links{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.links li{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:1rem;align-items:baseline}
+.links .k{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.links code{font-family:var(--mono);font-size:.95rem;background:var(--code-bg);padding:.1em .4em;border-radius:3px;overflow-wrap:anywhere}
+footer{
+  margin-top:4rem;padding-top:1rem;border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:.78rem;color:var(--muted);
+  display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-between;
+}
+@media (max-width:480px){
+  body{font-size:1.0625rem}
+  .lede{font-size:1.2rem}
+  .links li{grid-template-columns:1fr;gap:.15rem}
+}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="site">
+  <a class="name" href="#top">Ignacio Méndez-Bonito</a>
+  <nav aria-label="Site">
+    <a href="#about">About</a>
+    <a href="#now">Now</a>
+    <a href="#before">Before</a>
+    <a href="#elsewhere">Elsewhere</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<h1 id="about">About me</h1>
+
+<p class="lede">I build AI systems that have to work on Monday morning. Right now that means an agentic recruitment platform for the Abu Dhabi Government, where I'm a Senior Forward Deployed Engineer at the Department of Government Enablement.</p>
+
+<p>Before this I spent three years at BCG X as a forward deployed AI engineer, a year at CERN, and a year at HPE. I've written a lot of Python and a lot of React, and I've shipped RAG systems and agents into other people's Azure tenants often enough to have opinions about it.</p>
+
+<p>I studied in Oviedo, Madrid and Italy, and I've worked out of Madrid, Geneva and now Abu Dhabi. Spanish is my first language, my English is fluent, and my Italian gets me through a dinner.</p>
+
+<h2 id="now">Things I do</h2>
+
+<p>At DGE I lead the engineering of an agentic recruitment platform that serves more than 50 Abu Dhabi Government entities and around 10,000 HR users. It's part of the AED 13 billion AI-native government strategy that DGE is driving. The workflows we build source, screen and match candidates with AI agents, with the goal of cutting time-to-hire from about 45 days to around 20.</p>
+
+<p>I spend my days somewhere between the code and the government stakeholders who own the hiring process, scoping what they need and turning it into things that run in production. That is exactly where I like to be.</p>
+
+<p class="stack"><b>Stack:</b> Python · FastAPI · LangGraph · OpenAI · Azure · React · Redis</p>
+
+<h2 id="before">Things I did</h2>
+
+<p>From October 2025 to July 2026 I worked freelance from Madrid, building conversational AI for customer-support teams: ticket classification, drafted responses, and the RAG pipelines behind them, from ingestion and chunking to embedding and retrieval. On one of those engagements about 40% of incoming tickets ended up auto-classified, which meant a lot less manual sorting for the humans.</p>
+<p class="stack"><b>Stack:</b> Python · FastAPI · React + TypeScript · Redis · Azure · AWS · GCP · LangGraph · OpenAI</p>
+
+<p>From November 2022 to October 2025 I was a Forward Deployed AI Engineer at BCG X in Madrid. I led the development of ACA, a GenAI platform that more than 2,000 BCG partners use to find cost-saving opportunities with AI agents. I built a RAG system for a German insurer on Azure OpenAI, for document Q&amp;A and summarisation, deployed inside the client's own Azure environment. I improved a retention model for a major health insurer, and I was the frontend lead on DEEP.AI, an AI solution for a telecom client running on GCP. It was consulting, so the client, the industry and the stack changed every few months. I liked that.</p>
+<p class="stack"><b>Stack:</b> Python · FastAPI · Next.js · React · Redis · Azure · AWS · GCP · Java Spring · Angular</p>
+
+<p>From October 2021 to October 2022 I was a Software Engineer at <a href="https://home.cern/">CERN</a> in Geneva, in the HSE department. I built the Remus Application Editor, a tool for creating interactive maps with drag-and-drop widgets, in React and Spring Boot on top of an Oracle database. Working at CERN remains a highlight.</p>
+<p class="stack"><b>Stack:</b> React · Java Spring Boot · Oracle</p>
+
+<p>From June 2020 to August 2021 I was a Software Engineer in HPE's R&amp;D Orchestration team in Madrid, where I built a web app to visualise and filter more than 400 virtual machines and automated JSON generation from Ansible inventories with Python.</p>
+<p class="stack"><b>Stack:</b> Angular · TypeScript · FastAPI · Node.js · MySQL</p>
+
+<p>Academically, I hold an MSc in Data Engineering from MBIT School in Madrid (2024 to 2025, sponsored by BCG), an MSc in Computer Engineering from Carlos III University of Madrid (2020 to 2022), and a BSc in Computer Engineering from the University of Oviedo (2015 to 2020), including an exchange year in Italy.</p>
+
+<h2 id="elsewhere">Elsewhere</h2>
+
+<ul class="links">
+  <li><span class="k">GitHub</span><a href="https://github.com/nachomndzb">github.com/nachomndzb</a></li>
+  <!-- TODO: LinkedIn. Add a <li> like the one above with your profile URL. -->
+  <li><span class="k">Email</span><code>nachomndzb@gmail.com</code></li>
+</ul>
+
+</main>
+
+<footer>
+  <span>Abu Dhabi, UAE</span>
+  <span>Last updated October 2026</span>
+</footer>
+
+</div>
+</body>
+</html>
